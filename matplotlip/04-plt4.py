@@ -1,0 +1,58 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+plt.style.use("fivethirtyeight")
+myWidth = 0.25
+
+ages_x = [
+    18, 19, 20, 21, 22, 23, 24, 25, 26, 27,
+    28, 29, 30, 31, 32, 33, 34, 35, 36, 37,
+    38, 39, 40, 41, 42, 43, 44, 45, 46, 47,
+    48, 49, 50, 51, 52, 53, 54, 55
+]    #x
+X = np.arange(len(ages_x))
+
+# Python Developer Salaries by Age (18-55)  y1
+py_dev_y = [
+    20046, 17100, 20000, 24744, 30500, 37732, 41247,
+    45372, 48876, 53850, 57287, 63016, 65998, 70003, 70000, 71496,
+    84392, 78254, 85000, 87038, 91991, 100000, 94796, 97962, 93302,
+    99240, 102736, 112285, 100771, 104708, 108423,
+    110500, 113200, 116800, 119500, 123000, 127500, 131000
+]
+
+# JavaScript Developer Salaries by Age (18-55)   y2
+js_dev_y = [
+    16446, 16791, 18942, 21780, 25704, 29000, 34372,
+    37810, 43515, 46823, 49293, 53437, 56373, 62375, 66674, 68745,
+    68746, 74583, 78508, 79996, 80403, 83820, 88833, 91660, 87892,
+    96243, 90000, 99313, 91660, 102264, 100000,
+    103500, 106800, 109200, 112500, 116000, 119500, 123000
+]
+
+# General Developer Salaries by Age (18-55)    y3
+dev_y = [
+    17784, 16500, 18012, 20628, 25206, 30252, 34368,
+    38496, 42000, 46752, 49320, 53200, 56000, 62316, 64928, 67317,
+    68748, 73752, 78508, 79536, 82488, 88935, 90000, 90056, 95000,
+    90000, 91633, 91660, 98150, 98964, 100000,
+    103000, 106000, 109500, 112000, 115500, 119000, 122500
+]
+
+#bar chart
+# x=[1,2,3,4]
+# y=[4,5,7,10]
+# plt.bar(x, y)
+# plt.show()
+
+#alpha for buller color between 0-1
+
+plt.bar(X+myWidth, py_dev_y, label="Python Devs", width=myWidth)
+plt.bar(X, js_dev_y, label="JavaScript Devs", color="red", width=myWidth)
+plt.bar(X-myWidth, dev_y, label="Developers", color="yellow", width=myWidth)
+
+plt.xticks(ticks=X, labels=ages_x)   #write rest numbers 
+
+plt.legend()
+plt.show()
+
