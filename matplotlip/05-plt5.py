@@ -1,6 +1,7 @@
 import pandas as pd
 from pathlib import Path
 import matplotlib.pyplot as plt
+import matplotlib
 
 # base_path = Path(__file__).parent
 # data_path = base_path / "data" / "sample.csv"
@@ -27,11 +28,17 @@ orders = dataset_state.value_counts()
 
 orders = orders.to_dict()
 
-cities = list(orders.keys())
-amount = list(orders.values())
+cities = list(orders.keys())[:30]
+amount = list(orders.values())[:30]
+cities.reverse()    #for show chart Descending
+amount.reverse()
 
+#rc: for edit show chart
+matplotlib.rc('font', family='Cambria')
 
+matplotlib.rc('xtick', labelsize=8)
+matplotlib.rc('ytick', labelsize=8)
 
 plt.style.use('ggplot')
-plt.bar(cities, amount)
+plt.barh(cities, amount)    #show chart horizantal
 plt.show()
